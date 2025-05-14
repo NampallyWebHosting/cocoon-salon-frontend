@@ -3,51 +3,52 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { montserrat } from '@/app/fonts/fonts'
+import { motion } from 'framer-motion'
+
+const navItems = ['Home', 'Services', 'VIP', 'Blog', 'Franchise', 'Contact']
 
 export const Header = () => {
   return (
-    <header className="sticky top-6 z-50 flex justify-center">
-      <div
-        className="flex items-center justify-between gap-8 px-6 py-3 h-16 
-        bg-white/80 backdrop-blur rounded-full shadow-xl border border-gray-200 
-        max-w-[90%] w-full md:w-auto"
-      >
-        {/* Logo */}
-        <Link href="/" className="shrink-0">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-black flex items-center justify-center">
-            <Image
-              src="/assets/cocoon-logo.svg"
-              alt="Logo"
-              width={40}
-              height={40}
-              className="object-contain"
-            />
-          </div>
-        </Link>
-
-        {/* Navigation Links */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-black">
-          {['Home', 'Services', 'VIP', 'Blog', 'Franchise', 'Contact'].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              className="hover:text-primary transition-colors"
+    <header className={`${montserrat.className} fixed top-6 left-0 w-full z-50 flex justify-center`}>
+      <Card className="header-gradient backdrop-blur rounded-full border-none shadow-xl w-full max-w-5xl px-6 py-1">
+        <div className="flex items-center justify-between w-full">
+          {/* Logo with hover glow + scale */}
+          <Link href="/" className="shrink-0">
+            <motion.div
+              whileHover={{ scale: 1.05, boxShadow: '0 0 15px rgba(0, 0, 0, 0.15)' }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              className="w-14 h-14 rounded-full overflow-hidden bg-black flex items-center justify-center"
             >
-              {item}
-            </Link>
-          ))}
-        </nav>
+              <Image
+                src="/assets/cocoon-logo.svg"
+                alt="Logo"
+                width={100}
+                height={56}
+                className="object-contain"
+              />
+            </motion.div>
+          </Link>
 
-        {/* CTA Button */}
-        <div className="shrink-0">
-          <Button
-            size="sm"
-            className="rounded-full bg-black text-white px-5 py-2 hover:bg-black/90"
-          >
-            Book an appointment
-          </Button>
+          {/* Navigation links with underline on hover */}
+          <nav className="hidden md:flex gap-12 text-base font-medium text-[#060606]">
+            {navItems.map((item) => (
+              <Link key={item} href={`/${item.toLowerCase()}`} className="group relative transition-colors hover:text-primary">
+                <span>{item}</span>
+                <span className="absolute left-1/2 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+              </Link>
+            ))}
+          </nav>
+
+          {/* CTA Button with slight hover bounce */}
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="shrink-0">
+            <Button className="px-8 py-5.5" variant="primary">
+              Book an appointment
+            </Button>
+          </motion.div>
         </div>
-      </div>
+      </Card>
     </header>
   )
 }

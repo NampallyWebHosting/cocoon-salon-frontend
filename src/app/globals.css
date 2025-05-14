@@ -120,3 +120,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* globals.css */
+.header-gradient {
+  background: linear-gradient(90.43deg, rgba(255, 255, 255, 0.3) -0.09%, rgba(153, 153, 153, 0.4) 99.61%);
+}
