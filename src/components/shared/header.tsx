@@ -32,7 +32,7 @@ export const Header = () => {
               {/* Make the backdrop full width but transparent */}
               <SheetContent side="bottom" className="p-0 bg-transparent  border-t-0">
                 {/* CONSTRAINED inner card-style drawer */}
-                <div className="mx-auto w-[92%] sm:max-w-md bg-black rounded-t-2xl px-6 py-8 shadow-xl">
+                <div className="mx-auto w-[92%] sm:max-w-md header-menu-gradient rounded-t-2xl px-6 py-8 shadow-xl">
                   {/* Logo */}
                   <div className="flex justify-center mb-6">
                     <Image

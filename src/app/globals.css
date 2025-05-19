@@ -125,3 +125,9 @@
 .header-gradient {
   background: linear-gradient(90.43deg, rgba(255, 255, 255, 0.3) -0.09%, rgba(153, 153, 153, 0.4) 99.61%);
 }
+
+.header-menu-gradient {
+  background:linear-gradient(196.58deg, rgba(8, 8, 8, 0.85) 0.62%, rgba(20, 21, 21, 0.97) 101.84%)
+}
+
+
